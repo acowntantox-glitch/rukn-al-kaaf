@@ -1,45 +1,15 @@
 import type { Metadata } from "next";
 import { Container } from "@/components/ui/Container";
 import { PageHeader } from "@/components/ui/PageHeader";
-import { ContactForm } from "@/components/forms/ContactForm";
+import { PageBackground } from "@/components/ui/PageBackground";
 import { Button } from "@/components/ui/Button";
-import {
-  MapPinIcon,
-  PhoneIcon,
-  MailIcon,
-  WhatsAppIcon,
-  ClockIcon,
-} from "@/components/icons";
+import { PhoneIcon, WhatsAppIcon, MapPinIcon } from "@/components/icons";
 import { siteConfig } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "Contact Us",
-  description:
-    "Get in touch with Rukn Al Kaaf General Trading. Reach us by phone, email, WhatsApp, or send a message directly.",
+  description: "Call or WhatsApp Rukn Al Kaaf General Trading to place an order.",
 };
-
-const contactItems = [
-  { icon: MapPinIcon, label: "Address", value: siteConfig.contact.address, href: undefined },
-  {
-    icon: PhoneIcon,
-    label: "Phone",
-    value: siteConfig.contact.phone,
-    href: siteConfig.contact.phoneHref,
-  },
-  {
-    icon: MailIcon,
-    label: "Email",
-    value: siteConfig.contact.email,
-    href: `mailto:${siteConfig.contact.email}`,
-  },
-  {
-    icon: WhatsAppIcon,
-    label: "WhatsApp",
-    value: siteConfig.contact.whatsapp,
-    href: siteConfig.contact.whatsappHref,
-  },
-  { icon: ClockIcon, label: "Business Hours", value: siteConfig.contact.hours, href: undefined },
-];
 
 export default function ContactPage() {
   return (
@@ -47,51 +17,53 @@ export default function ContactPage() {
       <PageHeader
         eyebrow="Get In Touch"
         title="Contact Us"
-        description="Have a question or a business enquiry? Reach out and our team will respond promptly."
+        description="Call or WhatsApp us to place an order — we're ready to help."
         breadcrumbLabel="Contact Us"
       />
 
-      <section className="py-12 sm:py-16">
-        <Container className="grid grid-cols-1 gap-12 lg:grid-cols-3 lg:gap-16">
-          <div className="lg:col-span-2">
-            <h2 className="mb-6 text-xl font-semibold text-navy-900">Send Us a Message</h2>
-            <ContactForm />
+      <section className="relative isolate overflow-hidden bg-white py-12 sm:py-16">
+        <PageBackground />
+        <Container className="relative z-10 grid grid-cols-1 gap-6 sm:grid-cols-2">
+          <div className="flex flex-col items-start gap-4 rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
+            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-100 text-navy-900">
+              <PhoneIcon className="h-6 w-6" />
+            </div>
+            <span className="text-xs font-semibold uppercase tracking-wider text-slate-500">
+              Phone
+            </span>
+            <a
+              href={siteConfig.contact.phoneHref}
+              className="text-2xl font-bold text-navy-900 hover:text-blue-700"
+            >
+              {siteConfig.contact.phoneDisplay}
+            </a>
+            <Button href={siteConfig.contact.phoneHref} size="lg" className="mt-2 w-full justify-center">
+              <PhoneIcon className="h-4 w-4" />
+              Call Now
+            </Button>
           </div>
 
-          <div className="flex flex-col gap-6">
-            <div className="flex flex-col gap-5 rounded-xl border border-slate-200 p-6">
-              {contactItems.map((item) => (
-                <div key={item.label} className="flex items-start gap-3">
-                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-blue-100 text-navy-900">
-                    <item.icon className="h-4 w-4" />
-                  </div>
-                  <div className="flex flex-col gap-0.5">
-                    <span className="text-xs font-semibold uppercase tracking-wider text-slate-500">
-                      {item.label}
-                    </span>
-                    {item.href ? (
-                      <a
-                        href={item.href}
-                        target={item.href.startsWith("http") ? "_blank" : undefined}
-                        rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                        className="text-sm font-medium text-navy-900 hover:text-blue-700"
-                      >
-                        {item.value}
-                      </a>
-                    ) : (
-                      <span className="text-sm font-medium text-navy-900">{item.value}</span>
-                    )}
-                  </div>
-                </div>
-              ))}
+          <div className="flex flex-col items-start gap-4 rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
+            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#25D366]/10 text-[#1ebd5a]">
+              <WhatsAppIcon className="h-6 w-6" />
             </div>
-
+            <span className="text-xs font-semibold uppercase tracking-wider text-slate-500">
+              WhatsApp
+            </span>
+            <a
+              href={siteConfig.contact.whatsappHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-2xl font-bold text-navy-900 hover:text-blue-700"
+            >
+              {siteConfig.contact.whatsappDisplay}
+            </a>
             <Button
               href={siteConfig.contact.whatsappHref}
               target="_blank"
               rel="noopener noreferrer"
-              variant="secondary"
-              className="justify-center"
+              size="lg"
+              className="mt-2 w-full justify-center bg-[#25D366] hover:bg-[#1ebd5a]"
             >
               <WhatsAppIcon className="h-4 w-4" />
               Chat on WhatsApp
@@ -100,16 +72,31 @@ export default function ContactPage() {
         </Container>
       </section>
 
-      <section className="border-t border-slate-200">
-        <div className="h-80 w-full sm:h-96">
-          <iframe
-            title="Rukn Al Kaaf location map"
-            src={siteConfig.contact.mapEmbedUrl}
-            className="h-full w-full border-0"
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-          />
-        </div>
+      <section className="border-t border-slate-200 bg-white py-12 sm:py-16">
+        <Container className="flex flex-col gap-6">
+          <div className="flex items-start gap-3">
+            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-blue-100 text-navy-900">
+              <MapPinIcon className="h-5 w-5" />
+            </div>
+            <div className="flex flex-col gap-1">
+              <span className="text-xs font-semibold uppercase tracking-wider text-slate-500">
+                Location
+              </span>
+              <span className="text-base font-medium text-navy-900">
+                {siteConfig.contact.address}
+              </span>
+            </div>
+          </div>
+          <div className="h-72 w-full overflow-hidden rounded-2xl border border-slate-200 shadow-sm sm:h-96">
+            <iframe
+              title="Rukn Al Kaaf location map"
+              src={siteConfig.contact.mapEmbedUrl}
+              className="h-full w-full border-0"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+          </div>
+        </Container>
       </section>
     </>
   );

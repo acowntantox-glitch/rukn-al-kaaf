@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
+import { PageBackground } from "@/components/ui/PageBackground";
 import { ChevronRightIcon } from "@/components/icons";
 
 type PageHeaderProps = {
@@ -11,8 +12,9 @@ type PageHeaderProps = {
 
 export function PageHeader({ eyebrow, title, description, breadcrumbLabel }: PageHeaderProps) {
   return (
-    <section className="border-b border-slate-200 bg-slate-50 py-12 sm:py-16">
-      <Container className="flex flex-col gap-4">
+    <section className="relative isolate overflow-hidden border-b border-slate-200 bg-white py-12 sm:py-16">
+      <PageBackground />
+      <Container className="relative z-10 flex flex-col gap-4">
         <nav className="flex items-center gap-1.5 text-xs text-slate-500" aria-label="Breadcrumb">
           <Link href="/" className="hover:text-navy-900">
             Home
@@ -23,7 +25,7 @@ export function PageHeader({ eyebrow, title, description, breadcrumbLabel }: Pag
 
         <div className="flex max-w-2xl flex-col gap-3">
           {eyebrow ? (
-            <span className="text-xs font-semibold uppercase tracking-[0.18em] text-blue-700">
+            <span className="gold-rule text-xs font-semibold uppercase tracking-[0.18em] text-blue-700">
               {eyebrow}
             </span>
           ) : null}

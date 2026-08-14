@@ -1,19 +1,15 @@
 import { Hero } from "@/components/home/Hero";
 import { CompanyIntro } from "@/components/home/CompanyIntro";
-import { CategoryGrid } from "@/components/home/CategoryGrid";
-import { ServicesPreview } from "@/components/home/ServicesPreview";
-import { WhyChooseUs } from "@/components/home/WhyChooseUs";
-import { QuoteCta } from "@/components/home/QuoteCta";
+import { FeaturedProducts } from "@/components/home/FeaturedProducts";
+import { ContactCta } from "@/components/home/ContactCta";
 
 export default function HomePage() {
   return (
-    <>
+    <div className="home-flow-bg">
       <Hero />
       <CompanyIntro />
-      <CategoryGrid />
-      <ServicesPreview />
-      <WhyChooseUs />
-      <QuoteCta />
-    </>
+      <FeaturedProducts />
+      <ContactCta />
+    </div>
   );
 }

@@ -1,16 +1,29 @@
 @import "tailwindcss";
 
 :root {
-  --color-navy-950: #041524;
-  --color-navy-900: #002c4b;
-  --color-navy-800: #0c3958;
-  --color-blue-700: #355679;
-  --color-blue-600: #46688c;
-  --color-blue-100: #e7edf2;
-  --color-slate-400: #94a6b4;
-  --color-slate-200: #dfe6ea;
-  --color-slate-50: #f6f8f9;
-  --color-ink: #1c1c1c;
+  --color-navy-950: #031f35;
+  --color-navy-900: #062f4f;
+  --color-navy-850: #0a3a5c;
+  --color-navy-800: #0f4568;
+  --color-navy-700: #1b5478;
+  --color-blue-700: #2c6690;
+  --color-blue-600: #3e7ba6;
+  --color-blue-100: #e4eaee;
+
+  --color-gold-600: #9c7c1e;
+  --color-gold-500: #c9a227;
+  --color-gold-400: #d3b454;
+  --color-gold-300: #ddc57c;
+  --color-gold-200: #e8d49a;
+  --color-gold-100: #f3e9d0;
+
+  --color-slate-500: #56636d;
+  --color-slate-400: #7c8791;
+  --color-slate-200: #ddd8cc;
+  --color-slate-100: #ede9de;
+  --color-slate-50: #f2efe6;
+
+  --color-ink: #172b3a;
 
   --background: #ffffff;
   --foreground: var(--color-ink);
@@ -22,16 +35,30 @@
 
   --color-navy-950: var(--color-navy-950);
   --color-navy-900: var(--color-navy-900);
+  --color-navy-850: var(--color-navy-850);
   --color-navy-800: var(--color-navy-800);
+  --color-navy-700: var(--color-navy-700);
   --color-blue-700: var(--color-blue-700);
   --color-blue-600: var(--color-blue-600);
   --color-blue-100: var(--color-blue-100);
+
+  --color-gold-600: var(--color-gold-600);
+  --color-gold-500: var(--color-gold-500);
+  --color-gold-400: var(--color-gold-400);
+  --color-gold-300: var(--color-gold-300);
+  --color-gold-200: var(--color-gold-200);
+  --color-gold-100: var(--color-gold-100);
+
+  --color-slate-500: var(--color-slate-500);
   --color-slate-400: var(--color-slate-400);
   --color-slate-200: var(--color-slate-200);
+  --color-slate-100: var(--color-slate-100);
   --color-slate-50: var(--color-slate-50);
+
   --color-ink: var(--color-ink);
 
   --font-sans: var(--font-manrope);
+  --font-serif: var(--font-playfair);
 
   --container-7xl: 84rem;
 }
@@ -49,4 +76,36 @@ body {
 ::selection {
   background: var(--color-navy-900);
   color: #fff;
+}
+
+/* One continuous white/blue/cyan gradient flow behind the whole homepage,
+   so the pattern reads as a single field rather than per-section patches. */
+.home-flow-bg {
+  background-color: #ffffff;
+  background-image:
+    linear-gradient(160deg, rgba(159, 216, 236, 0.06) 0%, transparent 22%, transparent 78%, rgba(191, 231, 242, 0.07) 100%),
+    radial-gradient(circle at 85% 4%, rgba(159, 216, 236, 0.45) 0%, rgba(217, 240, 247, 0.18) 16%, transparent 32%),
+    radial-gradient(circle at 6% 20%, rgba(191, 231, 242, 0.28) 0%, transparent 26%),
+    radial-gradient(circle at 92% 44%, rgba(159, 216, 236, 0.26) 0%, transparent 28%),
+    radial-gradient(circle at 4% 62%, rgba(191, 231, 242, 0.3) 0%, transparent 28%),
+    radial-gradient(circle at 88% 80%, rgba(159, 216, 236, 0.3) 0%, transparent 30%),
+    radial-gradient(circle at 8% 97%, rgba(191, 231, 242, 0.35) 0%, transparent 28%);
+}
+
+/* Subtle gold hairline used to underscore key elements without extra markup */
+.gold-rule {
+  position: relative;
+}
+.gold-rule::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.6rem;
+  height: 2px;
+  width: 2.75rem;
+  background: linear-gradient(90deg, var(--color-gold-500), transparent);
+}
+.gold-rule.gold-rule-center::after {
+  left: 50%;
+  transform: translateX(-50%);
 }

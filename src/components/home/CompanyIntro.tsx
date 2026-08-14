@@ -8,13 +8,10 @@ export function CompanyIntro() {
     <section className="py-16 sm:py-20">
       <Container className="flex flex-col items-start gap-6 lg:flex-row lg:items-center lg:justify-between lg:gap-16">
         <div className="flex max-w-2xl flex-col gap-4">
-          <span className="text-xs font-semibold uppercase tracking-[0.18em] text-blue-700">
-            Who We Are
+          <span className="gold-rule text-xs font-semibold uppercase tracking-[0.18em] text-blue-700">
+            About Us
           </span>
-          <h2 className="text-3xl font-semibold tracking-tight text-navy-900 sm:text-4xl">
-            A trading partner built on reliability and reach
-          </h2>
-          <p className="text-base leading-relaxed text-slate-600 sm:text-lg">
+          <p className="text-lg leading-relaxed text-slate-600 sm:text-xl">
             {siteConfig.description}
           </p>
         </div>

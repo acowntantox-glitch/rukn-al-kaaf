@@ -1,70 +1,56 @@
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
-import { LogoImage } from "@/components/brand/Logo";
-import { ArrowRightIcon, CheckIcon } from "@/components/icons";
-
-const highlights = ["UAE-Based Operations", "Import & Export", "Wholesale Supply"];
+import { PhoneIcon, WhatsAppIcon, ArrowRightIcon } from "@/components/icons";
+import { siteConfig } from "@/data/site";
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden bg-white">
-      <Container className="grid grid-cols-1 items-center gap-12 py-16 sm:py-20 lg:grid-cols-2 lg:gap-16 lg:py-28">
-        <div className="flex flex-col gap-6">
-          <span className="inline-flex w-fit items-center rounded-full border border-slate-200 bg-slate-50 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.14em] text-blue-700">
-            General Trading Company &middot; UAE
-          </span>
+    <section>
+      <Container className="flex flex-col items-center gap-8 py-16 text-center sm:py-24">
+        <span className="inline-flex w-fit items-center rounded-full border border-slate-200 bg-white px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.14em] text-blue-700 shadow-sm">
+          Rukn Al Kaaf General Trading &middot; UAE
+        </span>
 
-          <h1 className="text-4xl font-bold leading-[1.1] tracking-tight text-navy-900 sm:text-5xl lg:text-[3.4rem]">
-            Connecting Markets.
+        <div className="flex flex-col gap-3">
+          <h1 className="text-4xl font-bold leading-[1.15] tracking-tight text-navy-900 sm:text-5xl">
+            Quality Cleaning Products
             <br />
-            Delivering Opportunities.
+            Since 2011
           </h1>
-
-          <p className="max-w-xl text-lg leading-relaxed text-slate-600">
-            Rukn Al Kaaf General Trading sources, supplies, and connects businesses
-            across the UAE, GCC, and international markets with quality products and
-            reliable trading solutions.
+          <p className="text-lg font-medium text-slate-600 sm:text-xl">
+            Rukn Al Kaaf General Trading &ndash; UAE
           </p>
-
-          <div className="flex flex-col gap-3 pt-2 sm:flex-row">
-            <Button href="/request-quote" size="lg">
-              Request a Quote
-              <ArrowRightIcon className="h-4 w-4" />
-            </Button>
-            <Button href="/products" variant="secondary" size="lg">
-              Explore Products
-            </Button>
-          </div>
-
-          <ul className="flex flex-wrap gap-x-6 gap-y-2 pt-4">
-            {highlights.map((item) => (
-              <li key={item} className="flex items-center gap-2 text-sm text-slate-600">
-                <CheckIcon className="h-4 w-4 text-blue-700" />
-                {item}
-              </li>
-            ))}
-          </ul>
         </div>
 
-        <div className="relative aspect-[4/3.4] w-full overflow-hidden rounded-2xl bg-gradient-to-br from-navy-900 to-navy-800 lg:aspect-square">
-          <svg
-            className="absolute inset-0 h-full w-full text-white/10"
-            viewBox="0 0 400 400"
-            preserveAspectRatio="none"
+        <a
+          href={siteConfig.contact.phoneHref}
+          className="inline-flex items-center gap-2.5 rounded-xl border border-slate-200 bg-white px-6 py-3 text-xl font-bold tracking-wide text-navy-900 shadow-sm transition-colors hover:border-gold-400 sm:text-2xl"
+        >
+          <PhoneIcon className="h-5 w-5 text-blue-700" />
+          {siteConfig.contact.phoneDisplay}
+        </a>
+
+        <div className="flex flex-col gap-3 pt-2 sm:flex-row">
+          <Button href={siteConfig.contact.phoneHref} size="lg">
+            <PhoneIcon className="h-4 w-4" />
+            Call Now
+          </Button>
+          <Button
+            href={siteConfig.contact.whatsappHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            variant="secondary"
+            size="lg"
           >
-            <path d="M-20 260 200 100 420 260" fill="none" stroke="currentColor" strokeWidth="18" />
-            <path d="M-20 330 200 170 420 330" fill="none" stroke="currentColor" strokeWidth="18" />
-            <path d="M-20 400 200 240 420 400" fill="none" stroke="currentColor" strokeWidth="18" />
-          </svg>
-          <div className="absolute inset-0 flex flex-col items-center justify-center gap-6 p-10 text-center">
-            <div className="rounded-xl bg-white px-6 py-4 shadow-lg">
-              <LogoImage className="h-20 w-auto sm:h-24" />
-            </div>
-            <p className="max-w-xs text-sm leading-relaxed text-slate-200">
-              A trusted trading partner across the UAE, GCC, and international markets.
-            </p>
-          </div>
+            <WhatsAppIcon className="h-4 w-4 text-[#25D366]" />
+            WhatsApp
+          </Button>
         </div>
+
+        <Button href="/products" variant="ghost" size="md">
+          Browse Products
+          <ArrowRightIcon className="h-4 w-4" />
+        </Button>
       </Container>
     </section>
   );

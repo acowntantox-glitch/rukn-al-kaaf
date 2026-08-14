@@ -23,7 +23,7 @@ export function SectionHeading({
     <div className={`flex max-w-2xl flex-col gap-3 ${alignClasses} ${className}`}>
       {eyebrow ? (
         <span
-          className={`text-xs font-semibold uppercase tracking-[0.18em] ${
+          className={`gold-rule text-xs font-semibold uppercase tracking-[0.18em] ${
             tone === "light" ? "text-slate-300" : "text-blue-700"
           }`}
         >

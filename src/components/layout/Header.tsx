@@ -6,8 +6,8 @@ import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { Logo } from "@/components/brand/Logo";
-import { MenuIcon, CloseIcon } from "@/components/icons";
-import { navLinks } from "@/data/site";
+import { MenuIcon, CloseIcon, PhoneIcon } from "@/components/icons";
+import { navLinks, siteConfig } from "@/data/site";
 
 export function Header() {
   const pathname = usePathname();
@@ -50,8 +50,9 @@ export function Header() {
         </nav>
 
         <div className="hidden items-center gap-3 lg:flex">
-          <Button href="/request-quote" size="md">
-            Request a Quote
+          <Button href={siteConfig.contact.phoneHref} size="md">
+            <PhoneIcon className="h-4 w-4" />
+            {siteConfig.contact.phoneDisplay}
           </Button>
         </div>
 
@@ -85,8 +86,9 @@ export function Header() {
                 </Link>
               );
             })}
-            <Button href="/request-quote" className="mt-3 justify-center">
-              Request a Quote
+            <Button href={siteConfig.contact.phoneHref} className="mt-3 justify-center">
+              <PhoneIcon className="h-4 w-4" />
+              Call {siteConfig.contact.phoneDisplay}
             </Button>
           </Container>
         </div>
