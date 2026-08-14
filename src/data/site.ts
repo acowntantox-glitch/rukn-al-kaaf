@@ -7,8 +7,8 @@ export const siteConfig = {
   url: "https://www.ruknalkaaf.com",
   locale: "en",
   contact: {
-    phone: "+971 4 000 0000",
-    phoneHref: "tel:+97140000000",
+    phone: "+971065243828",
+    phoneHref: "tel:+971065243828",
     whatsapp: "+971 50 000 0000",
     whatsappHref: "https://wa.me/971500000000",
     email: "info@ruknalkaaf.com",
