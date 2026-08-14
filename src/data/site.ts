@@ -10,8 +10,8 @@ export const siteConfig = {
     phone: "+97165243828",
     phoneDisplay: "+971 6 524 3828",
     phoneHref: "tel:+97165243828",
-    whatsappDisplay: "+971 6 524 3828",
-    whatsappHref: "https://wa.me/97165243828",
+    whatsappDisplay: "+971 55 178 6854",
+    whatsappHref: "https://wa.me/971551786854",
     address: "Bin Thani Residence, Al Twar Fifth, Al Qusais, Dubai, United Arab Emirates",
     mapEmbedUrl:
       "https://www.google.com/maps?q=Bin+Thani+Residence+Al+Twar+Fifth+Al+Qusais+Dubai+UAE&output=embed",
