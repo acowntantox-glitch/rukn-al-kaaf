@@ -1,5 +1,3 @@
-"use server";
-
 import type { FormState } from "@/lib/form-state";
 
 function getString(formData: FormData, key: string) {
