@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python -c ' *)",
+      "Read(//c/Users/acer/AppData/Local/Temp/claude/rukn-scaffold/**)",
+      "Bash(rm -rf .git)",
+      "Bash(cp -r 'C:\\\\Users\\\\acer\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\rukn-scaffold\\\\.' 'C:\\\\Users\\\\acer\\\\OneDrive\\\\Desktop\\\\rukn al kaaf\" *)"
+    ]
+  }
+}

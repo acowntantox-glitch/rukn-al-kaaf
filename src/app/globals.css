@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+:root {
+  --color-navy-950: #041524;
+  --color-navy-900: #002c4b;
+  --color-navy-800: #0c3958;
+  --color-blue-700: #355679;
+  --color-blue-600: #46688c;
+  --color-blue-100: #e7edf2;
+  --color-slate-400: #94a6b4;
+  --color-slate-200: #dfe6ea;
+  --color-slate-50: #f6f8f9;
+  --color-ink: #1c1c1c;
+
+  --background: #ffffff;
+  --foreground: var(--color-ink);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-navy-950: var(--color-navy-950);
+  --color-navy-900: var(--color-navy-900);
+  --color-navy-800: var(--color-navy-800);
+  --color-blue-700: var(--color-blue-700);
+  --color-blue-600: var(--color-blue-600);
+  --color-blue-100: var(--color-blue-100);
+  --color-slate-400: var(--color-slate-400);
+  --color-slate-200: var(--color-slate-200);
+  --color-slate-50: var(--color-slate-50);
+  --color-ink: var(--color-ink);
+
+  --font-sans: var(--font-manrope);
+
+  --container-7xl: 84rem;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+::selection {
+  background: var(--color-navy-900);
+  color: #fff;
+}
